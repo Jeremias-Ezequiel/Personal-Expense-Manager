@@ -42,47 +42,49 @@ declare(strict_types=1);
     </header>
 
     <main>
-        <section class="expense-content">
-            <form class="expense-form">
-                <h2>Add expense</h2>
+        <h2 class="fs-2 m-3 fw-bold">Expense Manager</h2>
 
+        <section class="expense-content container-fluid p-3">
+            <div class="row justify-content-around p-lg-0 p-5">
 
+                <form class="expense-form col-lg-5 col-12 rounded p-4">
+                    <h2>Add expense</h2>
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category:</label>
+                        <select
+                            class="form-select form-select-lg"
+                            name="category"
+                            id="category">
+                            <option selected disabled>--Select one category--</option>
+                            <option value="food">Food</option>
+                            <option value="travel">Travel</option>
+                            <option value="home">Home</option>
+                        </select>
+                    </div>
 
-                <div class="mb-3">
-                    <label for="category" class="form-label">Category:</label>
-                    <select
-                        class="form-select form-select-lg"
-                        name="category"
-                        id="category">
-                        <option selected disabled>--Select one category--</option>
-                        <option value="food">Food</option>
-                        <option value="travel">Travel</option>
-                        <option value="home">Home</option>
-                    </select>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description:</label>
+                        <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Price:</label>
+                        <input type="number" name="price" class="form-control" id="price" min="1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity:</label>
+                        <input type="number" name="quantity" class="form-control" id="quantity" min="1" value="1">
+                    </div>
+
+                    <p class="totalPrice">Total: $<span id="total">0</span></p>
+
+                    <button type="submit" name="newExpense" class="btn btn-dark">Create</button>
+                </form>
+                <div class="expense-information col-lg-5 col-12 mt-5 mt-lg-0 p-4 rounded">
+                    <h2>Expense Information</h2>
+                    <ul>
+
+                    </ul>
                 </div>
-
-                <div class="mb-3">
-                    <label for="description" class="form-label">Description:</label>
-                    <textarea class="form-control" name="description" id="description" rows="3"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="price" class="form-label">Price:</label>
-                    <input type="number" name="price" class="form-control" id="price" min="1">
-                </div>
-                <div class="mb-3">
-                    <label for="quantity" class="form-label">Quantity:</label>
-                    <input type="number" name="quantity" class="form-control" id="quantity" min="1" value="1">
-                </div>
-
-                <p class="totalPrice">Total: $<span id="total">0</span></p>
-
-                <button type="submit" name="newExpense" class="btn btn-dark">Create</button>
-            </form>
-            <div class="expense-information">
-                <h2>Expense Information</h2>
-                <ul>
-
-                </ul>
             </div>
         </section>
     </main>

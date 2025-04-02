@@ -1,5 +1,20 @@
+:root{
+    --indigo : #3f51b5;
+
+    --white : #fff; 
+}
+
 *{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    color: black !important;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 textarea{
@@ -15,31 +30,23 @@ h1,h2,h3{
 }
 
 .expense-content{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    margin: 50px;
-    gap: 20px;
-    color: white;
     font-size: 20px;
 }
 
-.expense-form{
-    width: 600px;
-    display: flex;
-    flex-direction: column;
-    background-color: #3f51b5;
-    padding: 20px;
-    border-radius: 20px;
-}
-
-
+.expense-form,
 .expense-information{
-    background-color: #3f51b5;
-    padding: 20px;
-    border-radius: 20px;
+    background-color: var(--indigo);
 }
 
 .totalPrice{
     font-size: 25px;
     font-weight: bold;
 }
+
+/* Main Navigation */
+
+.navbar{
+    background-color: var(--indigo) !important;
+    font-size: 20px;
+}
+

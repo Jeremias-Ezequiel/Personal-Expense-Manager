@@ -1,6 +1,8 @@
 <?php
 
-declare(strict_types=1);
+require_once __DIR__ . '/view/CategoryView.php';
+
+$categories = new CategoryView();
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +12,7 @@ declare(strict_types=1);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Expense</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="app.css">
     <script src="app.js" defer></script>
 </head>
@@ -47,7 +49,7 @@ declare(strict_types=1);
         <section class="expense-content container-fluid p-3">
             <div class="row justify-content-around p-lg-0 p-5">
 
-                <form class="expense-form col-lg-5 col-12 rounded p-4">
+                <form class="expense-form col-lg-5 col-12 rounded p-4" method="post" id="formExpense">
                     <h2>Add expense</h2>
                     <div class="mb-3">
                         <label for="category" class="form-label">Category:</label>
@@ -55,10 +57,10 @@ declare(strict_types=1);
                             class="form-select form-select-lg"
                             name="category"
                             id="category">
-                            <option selected disabled>--Select one category--</option>
-                            <option value="food">Food</option>
-                            <option value="travel">Travel</option>
-                            <option value="home">Home</option>
+                            <option selected disabled value="-">--Select one category--</option>
+                            <?php
+                            $categories->showCategories();
+                            ?>
                         </select>
                     </div>
 
@@ -77,8 +79,9 @@ declare(strict_types=1);
 
                     <p class="totalPrice">Total: $<span id="total">0</span></p>
 
-                    <button type="submit" name="newExpense" class="btn btn-dark">Create</button>
+                    <button type="submit" name="newExpense" class="btn btn-dark w-full">Create</button>
                 </form>
+
                 <div class="expense-information col-lg-5 col-12 mt-5 mt-lg-0 p-4 rounded">
                     <h2>Expense Information</h2>
                     <ul>
